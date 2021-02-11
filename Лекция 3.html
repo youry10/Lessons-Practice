@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script async> /* делает скрипт ассинхронным, для одновременной загрузки с css */
+        let products = [
+            {
+                title: 'cransberry',
+                price: 22,
+                image: 'https://s1.1zoom.ru/prev2/594/Closeup_Berry_Strawberry_Sliced_food_593203_300x200.jpg',
+            },
+
+            {
+                title: 'sausage',
+                price: 64,
+                image: 'https://s1.1zoom.ru/prev2/586/Sausage_Butterbrot_Sliced_food_585063_300x200.jpg',
+            },
+
+            {
+                title: 'pizza',
+                price: 52,
+                image: 'https://s1.1zoom.ru/prev2/574/Pizza_Closeup_Sausage_Olive_Bokeh_Sliced_food_573425_300x200.jpg',
+            },
+
+            {
+                title: 'watermelon',
+                price: 159,
+                image: 'https://s1.1zoom.ru/prev2/572/Watermelons_Melons_Sliced_food_Cutting_board_571867_300x200.jpg',
+            },
+        ];
+
+        for (let i = 0; i < products.length; i++) {
+        document.write(`
+            <div class="product-item">
+                <h2>${products[i].title}  -  ${products[i].price}</h2>
+                <img src="${products[i].image}" alt="${products[i].title}">
+            </div>
+        `);
+        }
+
+    /* JSON исп., если нужно передать (или получить) массив в другие платформы-языки. Преобраз. поля в строки, кроме цифр и булей */
+    let user = {name: 'vasy', age: 34};
+    let s = JSON.stringify(user);
+    let parse = JSON.parse(s); /* полученную строку переделывает на объект обратно */
+    </script>
+
+</head>
+<body>
+    <!-- PageSpeed Insights проверка скорости загрузки сайтов и рекомендации по устранению-->
+
+    <!-- стили для первых текст. элементов, грузятся первыми, зададим инлайново(в ост. случаях так делать не нужно, плохой стиль -->
+    <!-- это ускорит загрузку, Гугл такое одобряет -->
+    <h1 style="background: rgb(243, 172, 79)">Products store</h1> 
+    <style> /* разместим стили в боди, это ускорит загрузку страницы. Если стили в хеад - они загружаются до загрузки первых элементов*/
+        body {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .product-item {
+            width: 23%;
+            background: rgb(189, 191, 192);
+            margin: 0 1% 20px 1%;
+            overflow: hidden;
+        }
+        img {
+            width: 100%;
+        }
+    </style>
+
+</body>
+</html>
