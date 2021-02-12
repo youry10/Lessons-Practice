@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .acdc > b > span {/* обращение к определенному span по определенному сочетанию селекторов b > span */
+            background: silver; /* только этот спан форматируется */
+            /* такую же последовательность селекторов исп. querrySelector, это- не эффективно */
+        }
+
+        .queen {
+            background: cadetblue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!--DOM  Document Object Module-->
+    <!--создание разметки-->
+
+
+
+    <div class="acdc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error porro saepe expedita at asperiores commodi sapiente <b><span> molestiae </span>aliquam quisquam?</b> 
+    <div id="target">Lorem ipsum dolor sit amet consectettes temporibus sed deleniti.</div>
+    </div>
+    <p class="acdc">Lorem ipsum dolor<span> sit, amet consectetur adipisicing elit. </span>Dolores autem ad assumenda dignissimos possimus dolorum quo nihil, sit repellendus vero vel cupiditate blanditiis labore velit libero tenetur reiciendis natus architecto!</p>
+    <ul id="target">
+        <li>adadad</li>
+        <li>adadad</li>
+        <li>adadad</li>
+        <li>adadad</li>
+    </ul>
+
+
+
+
+    <script>
+        let user = {
+            name: 'vasy',
+            age: 54,
+           /* вложенный объект */
+            wife: {
+                name: 'Anya',
+                age: 35,
+                status: false,
+                /* вложенный во вложенном объекте - массив*/
+                parents: [
+                    {type: 'father', name: 'Max', age: 65}, /* 0 */
+                    {type: 'mother', name: 'Olga', age: 60}, /* 1 */
+                ]
+            }
+            
+        };
+        
+        /* вывод в консоль поля вложенного объекта */
+        // console.log(user.wife.status);
+        /* вывод в консоль элемента вложенного массива, который находится во вложенном объекте */
+        /* важно только имя конечного объекта - массива =parents,          user.wife - промежуточные части */
+        // console.log(user.wife.parents[1].name);
+        // for (const pare of user.wife.parents) {
+        //    console.log(pare);
+        // }
+        
+        
+        //let userKeys = [];
+        //for (let fieldname in user) {
+        //    console.log(fieldName);
+        //    userKeys.push(fieldname);
+        //}
+        //console.log(keys);
+
+
+        // Object  - класс, содержит всю информ. об объекте
+
+        //let keys = Object.keys(user); /* функция достает все ключи объекта */
+        //console.log(keys);
+
+
+        // console.log(user);
+        // let user2 = user; // эти массивы не тождественны, передача по ссылке, ссыллочный объект. ярлык!
+        // user2.status = true; // добавили новое свойство "статус"
+        // console.log(user);
+
+        // примитивные типы передают значения по значению
+        // let i = 0;
+        // let a = i;
+        // a++;
+        //console.log(a);
+        //console.log(i);
+
+        //let word = 'okten'; // string
+        //let word2 = word;
+        //word2 += '!';
+        //console.log(word, word2);
+
+
+        //console.log(document); // document - ссылка на весь документ, всю страницу
+        // document - это объект, head, body - его внутренние характеристики
+        //console.log(document.head); // доступ к хеаду страницы
+        //console.log(document.body); // доступ к body страницы
+
+        // по большому счету, все, что ниже - костыли (не для этого используют)
+
+        let target = document.getElementById('target'); // получаем только первый элемент с id='target'
+        //console.log(target);
+        //console.log(target.innerText);
+        //target.innerText = 'okten okten okten'; // меняем содержимое
+        //target.style.background = 'red';  // меняем атрибут стиля
+
+        //querrySelector лучше не исп., поиск по css-признаку очень обременительный
+        //let elementNodeListOf = document.querySelectorAll('#target');
+        //console.log(elementNodeListOf);
+
+        //let elementNodeListOf = document.querySelector('div'); // без All найдет только первый элемент
+        //console.log(elementNodeListOf);
+
+        //let divList = document.getElementsByTagName('div');
+        //console.log(divList);
+
+        // как эти полученные элементы можно изменять?
+        //for (const divElement of divList) {
+        //    divElement.innerText = '!!!!!!!!!!!!!!'
+        //}
+
+
+        let acdcList = document.getElementsByClassName('acdc');
+        console.log(acdcList);
+
+        //console.log(target.classList);
+        //target.classList.add('queen'); // добавляем класс 'queen'
+        //target.classList.remove('queen'); // delete class 'queen'
+
+        //for (const acdcElement of acdcList) {
+        //    acdcElement.classList.add('queen'); // добавляем класс 'queen'
+        //}
+
+
+        let div = document.createElement('div'); // создали элемент
+        div.innerText = 'okten is cool'; // даем ему характеристики
+        div.style.background = 'silver';
+        div.classList.add('target'); // элемент создан, но находится в лимбо - между небом и землей
+
+        // добавим в ребенка
+        document.body.appendChild(div); // добавим в боди дочерний элемент/ Боди - это ДОМ-элемент
+
+        /*
+        
+        let products = [
+            {title: 'milk'...},
+            {title: 'juice'...},
+            {title:'tomato'...},
+            {
+                title: 'tea',
+                price: 15,
+                image: 'https://...'
+            }
+        ];
+
+        for (const product of products) {
+            let productDiv = document.createElement('div');
+            productDiv.classList.add('item');
+            productDiv.innerText = `${product.title} ${product.price}`;
+            document.body.appendChild(productDiv);
+        }
+
+        */
+
+
+        
+        /*
+            for (const product of products) {
+                let container = document.createElement('div');
+                let h2 = document.createElement('h2');
+                h2.innerText = `${product.title} ${product.price}`;
+
+                container.appendChild(h2); //добавляем в контейнер
+
+                let img = document.createElement('img');
+                img.src = product.image;
+                container.appendChild(img); //добавляем в контейнер
+
+                document.body.appendChild(container);
+
+                document.getElementsByClassName('wrap')[0].appendChild(container);
+            }
+        */
+
+    </script>
+    
+</body>
+</html>
