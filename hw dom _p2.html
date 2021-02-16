@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+
+    <script>
+
+
+
+
+
+// 103. за допомоги document.createElement та appendChild створити таблицю на 1 рядок з трьома ячейками всередені
+
+        // tr = document.createElement('tr');
+        // tr.style.width = '600px'
+        // for (let i = 0; i < 3; i++) {
+        //     td = document.createElement('td');
+        //     td.style.width = '200px';
+        //     td.style.height = '50px';
+        //     td.style.border = '1px solid black';
+        //     tr.append(td);
+        // };
+        // document.body.append(tr);
+        
+
+        // 104. створити таблицю на 10 рядків з трьома ячейками всередені
+        // створити таблицю на 10 рядків з 5 ячейками всередені
+
+        // let table = document.createElement('table');
+        // for (let i = 0; i < 10; i++) {
+        //     let tr = document.createElement('tr');
+        //     tr.style.width = '900px';
+        //     tr.style.height = '20px';
+        //     for (let j = 0; j < 5; j++) {
+        //         let td = document.createElement('td');
+        //         td.style.width = '300px';
+        //         td.style.height = '20px';
+        //         td.style.border = '1px solid black';
+        //         tr.append(td);
+        //     }
+        //     table.append(tr);
+        // }
+        // document.body.append(table);
+
+
+        // 106. створити таблицю на n рядків з m ячейками всередені. n та m отримати з prompt
+
+            
+            // let m = document.createElement('prompt');
+            // m.title = 'Сколько ячеек?';
+            // document.body.append(m);
+            // let n = document.createElement('prompt');
+            // n.title = 'Сколько ячеек?';
+            // document.body.append(n);
+
+        //     let m = prompt('Сколько ячеек?');
+        //     let n = prompt('Сколько строк?');
+        //     let table = document.createElement('table');
+        //     for (i = 0; i < n; i++) {
+        //         let tr = document.createElement('tr');
+        //         for (j = 0; j < m; j++) {
+        //             let td = document.createElement('td');
+        //             td.style.height = '20px';
+        //             td.style.width = '50px';
+        //             td.style.border = '1px solid black';
+        //             tr.append(td);
+        //         };
+        //         table.append(tr);
+        //     }
+        // document.body.append(table);
+
+ 
+
+// 108. Завантажити з мережі будь-який шаблон сайту. Підключити до нього свій скріпт-файл. У файлі прописати наступні доступи та дії
+//  - знайти всі елементі, які мають class
+
+    // let cla = document.body.getElementsByTagName('*');
+    // for (let c of cla) {
+    //     if (c.classList !== '') {
+    //         console.log(c);
+    //     }
+    // };
+
+// 109.110    знайти всі параграфи ,та змінити текст на hello oktenweb!
+//  - знайти всі div та змінити ім колір на червоний
+
+        // let ha2 = document.body.getElementsByTagName('h2');
+        // for (let h of ha2) {
+        //     h.innerText = 'hello oktenweb!';
+        // };
+
+        // let diva = document.body.getElementsByTagName('div');
+        // for (let d of diva) {
+        //     d.style.color = 'red';
+        //     console.log(d);
+        // };
+
+ 
+
+    </script>
+</body>
+</html>
