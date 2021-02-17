@@ -8,38 +8,33 @@
 </head>
 <body>
     
-    <!-- <div id="crex" class="pex">fex</div> -->
+    <div id="crex" class="pex">fex</div>
 
 
     <script>
-
-
-
-
-
 
 // 100. створити розмітці блок з id, class та текстом в середені. Зчитати окремо цей текст з селекторів по id , class та тегу
 // змінити цей текст використовуючи селектори id, class,  tag
 // 102. змінити висоту та ширину блоку використовуючи селектори id, class,  tag
 
-        // let fixic;
-        // fixic = document.getElementById('crex');
-        // // fixic.innerHTML = 'Hrd sd werr';
-        // // console.log(fixic.innerText);
-        // fixic.style.width = '500px';
-        // fixic.style.height = '600px';
-        // // console.log(fixic.style.width);
+        let fixic;
+        fixic = document.getElementById('crex');
+        // fixic.innerHTML = 'Hrd sd werr';
+        // console.log(fixic.innerText);
+        fixic.style.width = '500px';
+        fixic.style.height = '600px';
+        // console.log(fixic.style.width);
 
-        // fixic = document.getElementsByClassName('pex');
-        // fixic[0].style.width = '700px';
-        // fixic[0].style.height = '800px';
-        // // fixic[0].innerHTML = 'beeeeeeee';
-        // // console.log(fixic[0].innerHTML);
+        fixic = document.getElementsByClassName('pex');
+        fixic[0].style.width = '700px';
+        fixic[0].style.height = '800px';
+        // fixic[0].innerHTML = 'beeeeeeee';
+        // console.log(fixic[0].innerHTML);
 
 
-        // fixic = document.getElementsByTagName('div');
-        // fixic[0].style.width = '900px';
-        // fixic[0].style.height = '1200px';
+        fixic = document.getElementsByTagName('div');
+        fixic[0].style.width = '900px';
+        fixic[0].style.height = '1200px';
         // fixic[0].innerHTML = 'Nonononono'
         // console.log(fixic[0].innerText);
 
@@ -548,6 +543,32 @@
                     //     document.body.appendChild(user);
                     // };
                     
+// Код, который написал ментор - более гибкий
+
+//     for (const user of users) {
+//         const userDiv = document.createElement('div');
+//         for (const userKey in user) {
+//         if (userKey !=='address') {
+//             let userPropertyDiv = document.createElement('div');
+//             userPropertyDiv.innerHTML += `${userKey}: ${user[userKey]}<br>`;
+//             userDiv.append(userPropertyDiv);
+
+//         } else {
+//             let userAddressDiv = document.createElement('div');
+//             userAddressDiv.innerHTML += `${userKey}:<br>`;
+//             userDiv.append(userAddressDiv);
+
+//             for (const key in user.address) {
+//                 let userAddressPropertyDiv = document.createElement('div');
+//                 userAddressPropertyDiv.innerHTML += `${key}: ${user.address[key]}<br>`;
+//                 userAddressDiv.append(userAddressPropertyDiv);
+//             };
+//         };
+//         };
+//     userDiv.innerHTML +='<hr>';
+//     document.body.appendChild(userDiv);
+//     };
+
 
 
 // 91. З'єднати в один об'єкт користувача та місто з відповідними "id" та "user_id" 
