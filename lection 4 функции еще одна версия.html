@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+
+
+        <button
+                onclick="(function (msg){ console.log(msg)})('hello')"
+        >press me
+        </button>
+
+        <script>
+
+			// string functions
+
+			// let str = 'okten is cool';
+			// let replaceAll = str.replaceAll('o', '0');
+			// console.log(replaceAll);
+			// console.log(str.toUpperCase());
+
+
+			// functions
+
+			// function foobar() {
+			// 	document.write('<div>hello </div>');
+			// 	document.write('<div>test </div>');
+			// 	document.write('<div>bye </div>');
+			// }
+			//
+			// foobar();
+			//
+			// foobar();
+			//
+			// foobar();
+
+
+			// function createDOMElement(tag, txt) {
+			// 	let element = document.createElement(tag);
+			// 	element.innerText = txt;
+			// 	document.body.appendChild(element);
+			// }
+			//
+			// createDOMElement('div', 'okten is cool');
+			// createDOMElement('h2', 'hello world');
+
+
+			// functions return
+
+
+			// function calcPermimetr(a, b) {
+			// 	let result = (a + b) * 2;
+			// 	return result;
+			//
+			// }
+			//
+			// let permimetr1 = calcPermimetr(100, 200);
+			// let permimetr2 = calcPermimetr(200, 300);
+			//
+			//
+			// let permimetr = calcPermimetr(permimetr1, permimetr2);
+			// console.log(permimetr);
+
+
+			// function calculator(a, b, action) {
+			//
+			// 	let result;
+			// 	if (action === '+') {
+			// 		result = a + b;
+			// 	} else if (action === '-') {
+			// 		result = a - b;
+			// 	}
+			// 	//......
+			// 	return result;
+			//
+			// }
+			//
+			// let res1 = calculator(10, 20, '+');
+			// console.log(res1);
+
+
+			// function printArray(array) {
+			// 	for (const arrayElement of array) {
+			// 		console.log(arrayElement);
+			// 	}
+			// }
+			//
+			//
+			// let users = [
+			// 	{name: 'vasya', age: 31, status: false},
+			// 	{name: 'petya', age: 30, status: true},
+			// 	{name: 'kolya', age: 29, status: true},
+			// 	{name: 'olya', age: 28, status: false},
+			// 	{name: 'max', age: 30, status: true},
+			// 	{name: 'anya', age: 31, status: false},
+			// 	{name: 'oleg', age: 28, status: false},
+			// 	{name: 'andrey', age: 29, status: true},
+			// 	{name: 'masha', age: 30, status: true},
+			// 	{name: 'olya', age: 31, status: false},
+			// 	{name: 'max', age: 31, status: true}
+			// ];
+			//
+			// printArray(users);
+			//
+			//
+			// let usersWithAddress = [
+			// 	{
+			// 		id: 1,
+			// 		name: 'vasya',
+			// 		age: 31,
+			// 		status: false,
+			// 		address: {city: 'Lviv', street: 'Shevchenko', number: 16}
+			// 	},
+			// 	{id: 2, name: 'petya', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 1}},
+			// 	{
+			// 		id: 3,
+			// 		name: 'kolya',
+			// 		age: 29,
+			// 		status: true,
+			// 		address: {city: 'Lviv', street: 'Shevchenko', number: 121}
+			// 	},
+			// 	{
+			// 		id: 4,
+			// 		name: 'olya',
+			// 		age: 28,
+			// 		status: false,
+			// 		address: {city: 'Lviv', street: 'Shevchenko', number: 90}
+			// 	},
+			// 	{id: 5, name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
+			// 	{id: 6, name: 'anya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 2}},
+			// 	{
+			// 		id: 7,
+			// 		name: 'oleg',
+			// 		age: 28,
+			// 		status: false,
+			// 		address: {city: 'Lviv', street: 'Shevchenko', number: 22}
+			// 	},
+			// 	{
+			// 		id: 8,
+			// 		name: 'andrey',
+			// 		age: 29,
+			// 		status: true,
+			// 		address: {city: 'Lviv', street: 'Shevchenko', number: 43}
+			// 	},
+			// 	{
+			// 		id: 9,
+			// 		name: 'masha',
+			// 		age: 30,
+			// 		status: true,
+			// 		address: {city: 'Lviv', street: 'Shevchenko', number: 12}
+			// 	},
+			// 	{
+			// 		id: 10,
+			// 		name: 'olya',
+			// 		age: 31,
+			// 		status: false,
+			// 		address: {city: 'Lviv', street: 'Shevchenko', number: 16}
+			// 	},
+			// 	{id: 11, name: 'max', age: 31, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}}
+			// ];
+			//
+			//
+			// printArray(usersWithAddress);
+			// printArray([11, 22, 33]);
+
+
+			// scope
+
+			// function scopeDemo() {
+			// 	let a = 100500;
+			// 	var b = 200600;
+			// }
+			//
+			//
+			// console.log(b);
+
+
+			// func with func
+
+			// function add(a, b) {
+			// 	return a + b;
+			// }
+			//
+			// function minus(a, b) {
+			// 	return a - b;
+			// }
+			//
+			//
+			// function calculate(a, b, action) {
+			//
+			// 	if (action === '+') {
+			// 		return add(a, b);
+			// 	} else if (action === '-') {
+			// 		return minus(a, b);
+			// 	}
+			// 	return 'erorrorororo';
+			// }
+			//
+			// calculate(100, 200, '+');
+
+
+			// hoisting
+
+			// hoist();
+			// function hoist() {}
+
+
+			// func expression
+
+			//
+			// let expressionFunc = function (a, b, c) {
+			// 	console.log('test');
+			// };
+			// expressionFunc(10, 20, 30);
+
+
+			// arrow
+
+			//
+			// let expressionFunc = a => console.log(a);
+			// expressionFunc('hello');
+
+			// let expressionFunc = (a, b) => {
+			// 	let result = a + b;
+			// 	console.log(result);
+			// 	return result;
+			// };
+			// let num = expressionFunc(10, 20);
+
+			// let expressionFunc = (a, b) => a + b;
+			// let num = expressionFunc(10, 20);
+			// console.log(num);
+
+
+			// arguments
+
+			// function calc(a, b) {
+			// 	let bascket = 0;
+			// 	for (const argument of arguments) {
+			// 		bascket += argument;
+			// 	}
+			//
+			// 	console.log(bascket);
+			// }
+			//
+			// calc(10, 20, 30, 40);
+			// calc(10, 20, 30, 40, 50);
+			// calc(10500, 13, 43654.999 - 90);
+
+			// local function
+
+			// function outer() {
+			// 	function local() {
+			// 		console.log('test');
+			// 	}
+			//
+			// 	local();
+			//
+			// }
+
+			//selfinvoke
+
+
+			// recursion
+
+
+			function increment(num) {
+				if (num > 10) {
+					return;
+
+				}
+				num++;
+				console.log(num);
+				increment(num);
+			}
+			increment(0);
+
+
+        </script>
+    </body>
+</html>
