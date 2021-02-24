@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+// 1. створити функцію яка виводить масив
+
+    let usersWithId = [ {id: 1, name: 'vasya', age: 31, status: false },
+                        {id: 2, name: 'petya', age: 30, status: true},
+                        {id: 3, name: 'kolya', age: 29, status: true},
+                        {id: 4, name: 'olya', age: 28, status: false}];
+
+        let citiesWithId = [{user_id: 3, country: 'USA', city: 'Portland'},
+                            {user_id: 1, country: 'Ukraine', city: 'Ternopil'},
+                            {user_id: 2, country: 'Poland', city: 'Krakow'},
+                            {user_id: 4, country: 'USA', city: 'Miami'}];
+
+
+
+function arrOutput(arrayName) {
+    let arrDiv = document.createElement('div');
+    for (const i in arrayName) {
+        let arr = document.createElement('div');
+        if (typeof arrayName[i] != 'object') {
+            arr.innerText += `${i}: ${arrayName[i]}`;
+        } else {
+            for (let j of Object.keys(arrayName[i])) {
+                arr.innerText += `${j}: ${arrayName[i][j]}`;
+            };
+        };
+        arrDiv.append(arr);
+    };
+    document.body.append(arrDiv);
+};
+
+
+// 2. створити функцію яка заповнює масив рандомними числами та виводить його. Для виведення використати попвередню функцію
+
+
+function createArr(arrSize) {
+    let arr = [];
+    for (let i = 0; i < arrSize; i++) {
+        arr.push(Math.ceil(Math.random() * 100));
+    }
+    return arr;
+};
+
+// arrOutput(createArr(20));
+
+// 3.створити функцію яка приймає три числа та виводить та повертає найменьше
+
+function min3() {
+    let nums = [];
+    for (let i = 0; i < 3; i++) {
+        nums[i] = Number(prompt('Input a number:'));
+    };
+    return Math.min(nums[0], nums[1], nums[2]);
+};
+
+// console.log(min3());
+
+// 4. створити функцію яка приймає три числа та виводить та повертає найбільше
+
+function max3() {
+    let nums = [];
+    for (let i = 0; i < 3; i++) {
+        nums[i] = Number(prompt('Input a number:'));
+    };
+    return Math.max(nums[0], nums[1], nums[2]);
+};
+
+// console.log(max3());
+
+// 5. створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше
+
+function minMax() {
+    let numArray = [];
+    let howManyNumbers = Number(prompt('How many numbers?'));
+    for (let i = 0; i < howManyNumbers; i++) {
+        numArray.push(prompt('Input a number:'));
+    };
+    console.log(Math.max.apply(null, numArray));
+    return Math.min.apply(null, numArray);
+};
+// minMax();
+
+// 7. створити функцію, яка повертає найбільше число з масиву
+
+sportLotoNumbers = [17, 44, 33, 2, 45, 20, 12, 3, 35, 10, 46];
+
+function numMax(numArray) {
+    return Math.max.apply(null, numArray);
+};
+// console.log(numMax(sportLotoNumbers));
+
+// 8. створити функцію яка повертає найменьше число з масиву
+
+function numMin(numArray) {
+    return Math.min.apply(null, numArray);
+};
+
+// 9. створити функцію яка приймає масив чисел та складає значення елементів масиву та повертає його
+
+function sumOffArray(theArray) {
+    let sumArray = 0;
+    for (const i in theArray) {
+        if (typeof theArray[i] == 'number') {
+            sumArray += theArray[i];
+        };
+    };
+    return sumArray;
+};
+// console.log(sumOffArray(sportLotoNumbers));
+
+// 10. створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень
+
+function arithmeticOffArray(theArray) {
+    return sumArray(theArray) / theArray.length;
+};
+// console.log(arithmeticOffArray(sportLotoNumbers));
+
+// 11. Створити функцію яка приймає масив будь яких объектів, та повертає значення кількості об'єктів в масиві
+
+function howManyObjects(theArray) {
+    let how = 0;
+    for (let i in theArray) {
+        if (typeof theArray[i] == 'object') {how++}
+    }
+    return how;
+};
+// console.log(howManyObjects(usersWithId));
+
+// 12. Створити функцію яка приймає масив будь яких объектів, та повертає загальн кількість полів в них
+
+function allFields(theArray) {
+    let all = 0;
+    for (let i in theArray) {
+        if (typeof theArray[i] == 'object') {
+            all += Object.keys(theArray[i]).length;
+        };
+    };
+    return all;
+};
+// console.log(allFields(usersWithId));
+
+// 13. створити функцію  яка скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив
+
+    let arr_1 = [1,2,3,4];
+    let arr_2 = [2,3,4,5];
+    let sumArr = [];
+
+    function sumElements(arr_1, arr_2) {
+        for (let i in arr_1) {
+            sumArr.push(arr_1[i] + arr_2[i]);
+        };
+        return sumArr;
+    };
+    // console.log(sumElements(arr_1, arr_2));
+
+    // 19. *** приймає масив та число "i", та міняє місцями об`єкт який знаходиться в індексі "i" на "i+1"
+
+    function shiftElement(arr, i) {
+        let tempStorage = arr[i + 1];
+        arr[i + 1] = arr[i];
+        arr[i] = tempStorage;
+
+        return arr;
+    }
+    // console.log(shiftElement(citiesWithId, 0));
+
+//    20.  *** створити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
+// Двожина масиву від 2 до 100
+
+
+    let ar_1 = [1,0,6,0,3];
+    let ar_2 = [0,0,1,0,0,2,3,4];
+    let ar_3 = [0,0,1,0];
+
+    function movingZero(arr) {
+        let tempArr = [];
+        for (let i in arr) {
+            if (arr[i] != 0) {
+                tempArr.push(arr[i])
+            }
+        }
+        let k = arr.length - tempArr.length;
+        for (i = 0; i < k; i++) {
+            tempArr.push(0);
+        }
+    return tempArr;
+    }
+    // console.log(movingZero(ar_1));
+
+
+//    27-30.  Створити функцію яка :
+// - Додає в боді блок з текстом "Hello owu"
+// - Додає в боді елемент з текстом . Тип елементу та текст отримати через аргументи
+// - приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
+
+    function addDiv() {
+        let aDidas = document.createElement('div');
+        aDidas.innerText = "Hello owu";
+        document.body.append(aDidas);
+        return
+    }
+    // addDiv();
+
+    function addToBody(typeOfElement, someText) {
+        let aDidas = document.createElement(typeOfElement);
+        aDidas.innerText = someText;
+        document.body.append(aDidas);
+        return
+    }
+    // addToBody('div', 'Hello owu')
+
+let auto = [
+            {
+            model: 'Acura',
+            made: 2021,
+            horsePower: 360,
+            color: 'black',
+            },
+
+            {
+            model: 'Audi',
+            made: 2019,
+            horsePower: 400,
+            color: 'white',
+            },
+    
+            {
+            model: 'Bentley',
+            made: 2018,
+            horsePower: 500,
+            color: 'red',
+            },
+
+            {
+            model: 'BMW',
+            made: 2020,
+            horsePower: 390,
+            color: 'green',
+            },
+
+            {
+            model: 'Cadillac',
+            made: 2018,
+            horsePower: 430,
+            color: 'black',
+            },
+
+            {
+            model: 'Chevrolet',
+            made: 2020,
+            horsePower: 250,
+            color: 'grey',
+            },
+
+            {
+            model: 'Ferrari',
+            made: 2021,
+            horsePower: 1000,
+            color: 'golden',
+            },
+
+            {
+            model: 'FIAT',
+            made: 2021,
+            horsePower: 180,
+            color: 'light green',
+            },
+
+            {
+            model: 'Ford',
+            made: 2021,
+            horsePower: 220,
+            color: 'yellow',
+            },
+
+            {
+            model: 'Honda',
+            made: 2021,
+            horsePower: 480,
+            color: 'pink',
+            },
+        ];
+
+
+            // function carArray (arr) {
+            //     let id = [];
+            //     for (let i in arr) {
+            //         id.push(arr[i].model)
+            //     }
+            //     console.log(id);
+            //     return id;
+            // }
+
+            // let a = arr => {
+            //     let id = [];
+            //     for (let i in arr) {
+            //         id.push(arr[i].model)
+            //     }
+            //     return id;
+            // }
+            // console.log(a(auto));
+
+
+//31. Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали. Всі властивості авто в обному блоці       
+          
+                function ownBlock(ident) {
+                    let aa = document.createElement(ident)
+                    for (let i in auto) {
+                        let bb = document.createElement('div')
+                        bb.innerHTML = `model: ${auto[i].model}<br>`
+                        bb.innerHTML += `made: ${auto[i].made}<br>`
+                        bb.innerHTML += `horsePower: ${auto[i].horsePower}<br>`
+                        bb.innerHTML += `color: ${auto[i].color}<br>`
+                        bb.innerHTML += `<br>`
+                        aa.append(bb)
+                    }
+                    document.body.append(aa)  
+                    return
+                }
+                // ownBlock('h4');
+
+
+
+//  36. (на основі минулого ДЗ)
+// **- функція приймає 2 масиви з рівною кількістю об'єктів та з'єднює в один об'єкт користувача та місто з відповідними "id" та "user_id",
+// та повертає масив цих з'єднаних об'єктів.         
+
+    // let usersWithId = [ {id: 1, name: 'vasya', age: 31, status: false },
+    //                     {id: 2, name: 'petya', age: 30, status: true},
+    //                     {id: 3, name: 'kolya', age: 29, status: true},
+    //                     {id: 4, name: 'olya', age: 28, status: false}];
+
+    //     let citiesWithId = [{user_id: 3, country: 'USA', city: 'Portland'},
+    //                         {user_id: 1, country: 'Ukraine', city: 'Ternopil'},
+    //                         {user_id: 2, country: 'Poland', city: 'Krakow'},
+    //                         {user_id: 4, country: 'USA', city: 'Miami'}];
+
+        function usersArray(arr_1, arr_2) {
+            let newObj = {}
+            let arr_12 = []
+            for (let i in arr_1) {
+                for (let k in arr_2) {
+                    if (arr_1[i].id == arr_2[k].user_id) {
+                        newObj[i] = {name: `${arr_1[i].name}`, city: `${arr_2[k].city}`}
+                        arr_12[i] = newObj[i]
+                    }
+                }
+            }
+            return arr_12
+        }
+// console.log(usersArray(usersWithId, citiesWithId));
+
+
+
+
+let rules = [
+    {
+        title: 'Первое правило Бойцовского клуба.',
+        body: 'Никому не рассказывать о Бойцовском клубе.'
+    },
+    {
+        title: 'Второе правило Бойцовского клуба.',
+        body: 'Никогда никому не рассказывать о Бойцовском клубе.'
+    },
+    {
+        title: 'Третье правило Бойцовского клуба.',
+        body: 'В схватке участвуют только двое.'
+    },
+    {
+        title: 'Четвертое правило Бойцовского клуба.',
+        body: 'Не более одного поединка за один раз.'
+    },
+    {
+        title: 'Пятое правило Бойцовского клуба.',
+        body: 'Бойцы сражаются без обуви и голые по пояс.'
+    },
+    {
+        title: 'Шестое правило Бойцовского клуба.',
+        body: 'Поединок продолжается столько, сколько потребуется.'
+    },
+    {
+        title: 'Седьмое правило Бойцовского клуба.',
+        body: 'Если противник потерял сознание или делает вид, что потерял, или говорит «Хватит» — поединок окончен.'
+    },
+    {
+        title: 'Восьмое и последнее правило Бойцовского клуба.',
+        body: 'Новичок обязан принять бой.'
+    },
+    
+];
+
+// 46. ***- беремо завдання з правилами з укроку №3 :
+// Та робимо це функцією.При цьому правила отримувати через аргумент.
+// "Є масив котрий характеризує правила. Створити скрипт який ітерує цей масив, та робить з кожне правило в окремому блоці.
+// При цому в блоці, номер правила записати в свій блок, текст правила записати в свій окремий блок.
+// Результатом відпрацювання скріпта повинна бути структура яка міститься в блоці wrap файла rule.html
+
+function bigRules() {    
+    let wrap = document.createElement('div');
+            wrap.id = 'wrap';
+            for (let i = 0; i < rules.length; i++) {
+                let divdiv = document.createElement('div');
+                divdiv.classList.add('rules');
+                divdiv.classList.add(`rule${i+1}`);
+                console.log(divdiv);
+                let hh = document.createElement('h2');
+                hh.innerText = rules[i].title;
+                divdiv.append(hh); 
+                let pp = document.createElement('p');
+                pp.innerText = rules[i].body;
+                divdiv.append(pp);
+                wrap.append(divdiv);
+            };
+            document.body.append(wrap);
+            return
+        }
+        // bigRules()
+
+
+//  90.       1) Точная степень двойки.
+// Дано натуральное число N.
+// Выведите слово YES, если число N является точной степенью двойки,
+// или слово NO в противном случае.
+// Операцией возведения в степень пользоваться нельзя!
+
+        function ex(num) {
+            let yes_No = 'Nononono'
+            while ((num % 2 == 0 && num != 0) || num == 1) {
+                if (num == 1) {
+                    yes_No = 'Yeeees'
+                    break
+                }
+                num = num / 2
+            }
+        return yes_No
+        }
+        // console.log(ex(1))
+        // console.log(ex(2))
+        // console.log(ex(0))
+
+
+        //96. 2) Deep Copy
+// реалізувати глибоке копіювання обєкту за допомогою рекурсій
+
+let Ferrari = {
+    model: 'Ferrari',
+    made: 2021,
+    horsePower: 1000,
+    color: 'golden',
+    }
+
+let user = {
+    name: "Ivan",
+    sizes: {
+        weight: 76,
+        height: 1.5,
+            },
+    age: 21
+}
+
+function inDepth(objFrom) {
+    let clone = {}
+    for (let i in objFrom) {
+        if (typeof clone[i] != 'object') {
+            clone[i] = objFrom[i]
+        } else {
+            inDepth(clone[i])
+        }
+    }
+return clone
+}
+// console.log(inDepth(user))
+
+
+
+// 99. 3) Flat
+// Вирівняти багаторівневий масив в однорівневий
+// [1,3, ['Hello, 'Wordd', [9,6,1]], ['oops'], 9] -> [1, 3, 'Hello, 'Wordd', 9, 6, 1, 'oops', 9]
+    
+
+
+
+
+
+
+
+
+
+
+// #Практическая:
+// 1) создать функцию которая принимает массив и возвращает строку ([1, 2, 3, 4, 5, 6] -> "123456")
+
+// 2) создать функцию которая принимает массив чисел и возвращает этот же массив,
+// но каждый его элемент больше на 1 ([5,2,3] -> [6,3,4])
+
+// 3) создать функцию которая принимает число n, min, max
+// и возвращает массив длиной n с случайными числами в диапазоне от min до max
+
+// 4) // создать функцию которая принимает age и массив (массив ниже или придумайте свой)
+// и возвращает новый массив с теми юзерами которые совпадают по возрасту
+// const users = [
+// {id: 1, name: 'vasya', age: 31, status: false},
+// {id: 2, name: 'petya', age: 30, status: true},
+// {id: 3, name: 'kolya', age: 29, status: true},
+// {id: 4, name: 'olya', age: 30, status: false},
+// {id: 4, name: 'kira', age: 29, status: false},
+// {id: 4, name: 'marta', age: 30, status: false},
+// ];
+// Пример:
+// someFunc(30, users) -> [
+// {id: 2, name: 'petya', age: 30, status: true},
+// {id: 4, name: 'olya', age: 30, status: false},
+// {id: 4, name: 'marta', age: 30, status: false},
+// ]
+    
+    </script>
+</body>
+</html>
