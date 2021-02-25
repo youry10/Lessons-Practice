@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+// -4.   Створити функцію конструктор для об'єкту який описує теги
+// Властивості
+//  -назва тегу
+//  - опис його дій
+//  - масив з атрибутами (2-3 атрибути максимум)
+//  Кожен атрибут описати як окремий який буде містити
+//  -назву атрибуту
+//  -опис дії атрибуту
+//  інформацію брати з htmlbook.ru
+
+//  Таким чином описати теги
+//  -a
+//  -div
+//  -h1
+//  -span
+//  -input
+//  -form
+//  -option
+//  -select
+//  Приклад результату
+//    {
+//         titleOfTag: 'area',
+//         action: `Каждый элемент <area> определяет активные области изображения, которые являются ссылками...`,
+//         attrs: [
+//         {titleOfAttr: 'accesskey', actionOfAttr: 'Переход к области с помощью комбинации клавиш'},
+//         {/*some props and values*/},
+//         {/*...*/},
+//         {/*...*/},
+//         ]
+
+//    }
+
+
+
+// function Tags(titleOfTag, action, attrs) {
+//         this.titleOfTag = titleOfTag
+//         this.action = action
+//         this.attrs = attrs
+//     }
+
+//    attrs = [{titleOfAttr: 'accesskey', actionOfAttr: 'Активация ссылки с помощью комбинации клавиш'},
+//             {titleOfAttr: 'coords', actionOfAttr: 'Устанавливает координаты активной области'},
+//             {titleOfAttr: 'download', actionOfAttr: 'Предлагает скачать указанный по ссылке файл'}  ]
+ 
+
+    // let a = new Tags('<a>', 'Тег предназначен для создания ссылок', attrs)
+    // console.log(a)
+
+
+//    39.  -  Створити класс  для об'єкту який описує теги
+// Властивості
+//  -назва тегу
+//  - опис його дій
+//  - масив з атрибутами (2-3 атрибути максимум)
+//  Кожен атрибут описати як окремий який буде містити
+//  -назву атрибуту
+//  -опис дії атрибуту
+//  інформацію брати з htmlbook.ru
+
+//  Таким чином описати теги
+//  -a
+//  -div
+//  -h1
+//  -span
+//  -input
+//  -form
+//  -option
+//  -select
+//  Приклад результату
+//    {
+//         titleOfTag: 'area',
+//         action: `Каждый элемент <area> определяет активные области изображения, которые являются ссылками...`,
+//         attrs: [
+//         {titleOfAttr: 'accesskey', actionOfAttr: 'Переход к области с помощью комбинации клавиш'},
+//         {/*some props and values*/},
+//         {/*...*/},
+//         {/*...*/},
+//         ]
+
+//    }
+
+
+
+// attrs = [{titleOfAttr: 'accept', actionOfAttr: 'Устанавливает фильтр на типы файлов, которые вы можете отправить через поле загрузки файлов'},
+//             {titleOfAttr: 'accesskey', actionOfAttr: 'Переход к элементу с помощью комбинации клавиш'},
+//             {titleOfAttr: 'autocomplete', actionOfAttr: 'Включает или отключает автозаполнение'}
+//         ]
+
+// class clTags {
+//     constructor(titleOfTag, action, attrs) {
+//         this.titleOfTag = titleOfTag
+//         this.action = action
+//         this.attrs = attrs
+//     }
+// }
+
+//     let a = new clTags('<input>', 'Предназначен для создания текстовых полей, различных кнопок, переключателей и флажков', attrs)
+//     console.log(a)
+
+
+
+// 75. - Створити об'єкт car, з властивостями модель, виробник, рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
+// -- drive () - яка виводить в консоль "їдемо зі швидкістю {максимальна швидкість} на годину"
+// -- info () - яка виводить всю інформацію про автомобіль
+// -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
+// -- changeYear (newValue) - змінює рік випуску на значення newValue
+// -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний об'єкт car
+
+
+// function Cars(model, fabrica, made, max, engine) {
+//     this.model = model;
+//     this.fabrica = fabrica;
+//     this.made = made;
+//     this.max = max;
+//     this.engine = engine;
+//     this.drive = function() {
+//          console.log(`їдемо зі швидкістю ${this.max} на годину`);
+//     };
+//     this.info = function () {
+//         console.log(`model: ${this.model} fabrica: ${this.fabrica} made in: ${this.made} max speed ${this.max}`);
+//     };
+//     this.increaseMaxSpeed = function(newSpeed) {
+//         this.max = newSpeed;
+//     };
+//     this.changeYear = function(newValue) {
+//         this.made = newValue;
+//     };
+//     this.addDriver = function(driver) {
+//         this.addDriver = driver;
+//     };
+// }
+
+// let car = new Cars('Audi', 'Opel', 1956, 57, 30)
+
+// car.addDriver('Vikki')
+// car.increaseMaxSpeed(400)
+// car.drive()
+// car.info()
+// car.changeYear(2022)
+// console.log(car)
+
+
+
+// class Cars {
+//     constructor (model, fabrica, made, max, engine) {
+//         this.model = model;
+//         this.fabrica = fabrica;
+//         this.made = made;
+//         this.max = max;
+//         this.engine = engine;
+//         this.drive = function() {
+//             console.log(`їдемо зі швидкістю ${this.max} на годину`);
+//         };
+//         this.info = function () {
+//             console.log(`model: ${this.model} fabrica: ${this.fabrica} made in: ${this.made} max speed ${this.max}`);
+//         };
+//         this.increaseMaxSpeed = function(newSpeed) {
+//             this.max = newSpeed;
+//         };
+//         this.changeYear = function(newValue) {
+//             this.made = newValue;
+//         };
+//         this.addDriver = function(driver) {
+//             this.addDriver = driver;
+//         };
+//     }
+// }
+
+// let car = new Cars('Audi', 'Opel', 1956, 57, 30)
+
+// car.addDriver('Vikki')
+// car.increaseMaxSpeed(400)
+// car.drive()
+// car.info()
+// car.changeYear(2022)
+// console.log(car)
+
+
+//104.  -створити класс попелюшка з полями ім'я, вік, розмір ноги
+// --Створити 10 попелюшок , покласти їх в масив
+// --Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
+// -- за допоиоги циклу знайти яка попелюшка повинна бути з принцом
+
+// class Zolushka {
+//     constructor(name, age, foot) {
+//         this.name = name
+//         this.age = age
+//         this.foot = foot
+//     }
+// }
+// let girls = []
+// for (let i = 0; i < 10; i++) {
+//     girls[i] = new Zolushka('beaty' + i, (i + 1) * 8, (i +3) * 12)
+// }
+// console.log(girls)
+
+// class Prince {
+//     constructor(name, age, foot) {
+//         this.name = name
+//         this.age = age
+//         this.foot = foot
+//     }
+// }
+
+// let prince = new Prince('Charli', 24, 84)
+// console.log(prince)
+
+// for (let i = 0; i < girls.length; i++) {
+//     // debugger
+//     if (girls[i].foot == prince.foot) {
+//         console.log(`name: ${girls[i].name} age: ${girls[i].age}`);
+//         break}
+//     else {console.log('No found...')}
+// }
+
+// 113. -створити функцію конструктор попелюшка з полями ім'я, вік, розмір ноги
+// --Створити 10 попелюшок , покласти їх в масив
+// --Сторити об'єкт типу "принц" за допомоги функції конструктора з полями ім'я, вік, туфелька яку він знайшов, та функцію "пошук попелюшки"
+// -- функція повинна приймати масив попелюшок, та шукає ту котра йому підходить
+
+// function Zolushka(name, age, foot) {
+//         this.name = name
+//         this.age = age
+//         this.foot = foot
+//     }
+
+// let girls = []
+// for (let i = 0; i < 10; i++) {
+//     girls[i] = new Zolushka('beaty' + i, (i + 1) * 8, (i +3) * 12)
+// }
+
+
+// function Prince (name, age, foot) {
+//         this.name = name
+//         this.age = age
+//         this.foot = foot
+//         this.poisk = function() {
+//             for (let i = 0; i < girls.length; i++) {
+//                 if (girls[i].foot == prince.foot) {
+//                     console.log(`name: ${girls[i].name} age: ${girls[i].age}`);
+//                     break}
+//                 else {console.log('No found...')}
+//             }
+//             }
+// }
+
+// let prince = new Prince ('Bill', 43, 84)
+// console.log(prince.poisk())
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>
