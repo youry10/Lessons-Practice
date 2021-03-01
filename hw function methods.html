@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+
+// - создать массив с 20 числами.
+// -- при помощи метода sort и колбека отсортировать массив.
+// -- при помощи метода sort и колбека отсортировать массив в ниспадающем напралении.
+// -- при помощи filter получить числа кратные 3
+// -- при помощи filter получить числа кратные 10
+// -- перебрать (проитерировать) массив при помощи foreach()
+// -- перебрать массив при помощи map() и получить новый массив в котором все значения будут в 3 раза больше
+
+// - создать массив со словами на 15-20 элементов.
+// -- отсортировать его по алфавиту в восходящем порядке.
+// -- отсортировать его по алфавиту в нисходящем порядке.
+// -- отфильтровать слова длиной менее 4х символов
+// -- перебрать массив при помощи map() и получить новый массив в котором все значения будут со знаком "!" в конце
+
+// Все робити через функції масивів (foreach, map ...тд)
+// Дан масив :
+// let users = [ {name: 'vasya', age: 31, status: false}, {name: 'petya', age: 30, status: true}, {name: 'kolya', age: 29, status: true}, {name: 'olya', age: 28, status: false}, {name: 'max', age: 30, status: true}, {name: 'anya', age: 31, status: false}, {name: 'oleg', age: 28, status: false}, {name: 'andrey', age: 29, status: true}, {name: 'masha', age: 30, status: true}, {name: 'olya', age: 31, status: false}, {name: 'max', age: 31, status: true} ];
+// - відсортувати його за віком (зростання , а потім окремо спадання)
+// - відсортувати його за кількістю знаків в імені (зростання , а потім окремо спадання)
+// - пройтись по ньому та додати кожному юзеру поле id - яке характеризує унікальний індентифікатор (По якому принципу його створювати - ваше рішення), та зберегти це в новий масив (первинний масив залишиться без змін)
+// - відсортувати його за індентифікатором
+
+
+// -- наисать функцию калькулятора с 2мя числами и колбеком
+// -- наисать функцию калькулятора с 3мя числами и колбекомновое дз
+
+
+
+
+
+
+
+let num = [34, 704, 2, 55, 1, 13, 9301, 5436, 57, 22, 53, 4, 889, 1021, 800, 10, 6, 9, 71, 40]
+
+// num.sort();
+// console.log(num);
+
+// num.sort(function(a, b) {
+//     return a - b;
+// });
+// console.log(num);
+
+// num.sort((a, b) => (a - b));
+// console.log(num);
+
+// let filter = num.filter(function (number) {
+// 		if (number % 3 === 0) {
+// 			return true;
+// 		} else {
+// 			return false;
+// 		}
+// });
+// console.log(filter)
+
+// let a = num.filter(item => item % 10 == 0)
+// console.log(a)
+
+// num.forEach(function(value) {
+//     console.log(value)
+// });
+// console.log(arr);
+
+// let map = num.map(function(value) {
+// 	return value * 3;
+// });
+// console.log(map);
+
+let words = [
+    'массив', 'числа', 'алфавиту', 'перебрать', 'значения', 'больше', 'помощи', 'кратные', 'проитерировать', 'элементов', 'словами', 'відсортувати', 'новый', 'калькулятора', 'наисать'
+];
+
+
+// words.sort((a, b) => {
+//     if (a.toUpperCase() < b.toUpperCase()) {return -1}
+//     if (a.toUpperCase() > b.toUpperCase()) {return 1}
+//     return 0
+//     })
+// console.log(words)
+
+
+// words.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
+// console.log(words)
+// words.sort((a, b) => b.toLowerCase().localeCompare(a.toLowerCase()))
+// console.log(words)
+
+// words.sort((a, b) => (a > b) ? 1 : -1)
+// console.log(words)
+// words.sort((a, b) => (a > b) ? -1 : 1)
+// console.log(words)
+
+
+// words.sort((a, b) => {
+//     if (a.toUpperCase() < b.toUpperCase()) {return 1}
+//     if (a.toUpperCase() > b.toUpperCase()) {return -1}
+//     return 0
+//     })
+// console.log(words)
+
+
+
+// let filter = words.filter(words => words.length < 6)
+// console.log(filter)
+
+
+// let map = words.map(words => words + '!')
+// console.log(map)
+
+
+// 16. Все робити через функції масивів (foreach, map ...тд)
+// Дан масив :
+
+// - відсортувати його за  віком (зростання , а потім окремо спадання)
+// - відсортувати його за кількістю знаків в імені  (зростання , а потім окремо спадання)
+
+
+let users = [ 
+    {name: 'vasya', age: 31, status: false}, 
+    {name: 'petya', age: 30, status: true}, 
+    {name: 'kolya', age: 29, status: true}, 
+    {name: 'olya', age: 28, status: false}, 
+    {name: 'max', age: 30, status: true}, 
+    {name: 'anya', age: 31, status: false}, 
+    {name: 'oleg', age: 28, status: false}, 
+    {name: 'andrey', age: 29, status: true}, 
+    {name: 'masha', age: 30, status: true}, 
+    {name: 'olya', age: 31, status: false}, 
+    {name: 'max', age: 31, status: true} 
+];
+
+
+// let i = 0
+// let endI = users.length - 1
+// users.forEach(function(value, i) {
+//     if (i < endI) {
+//         let j = 0
+//         let endJ = endI - i
+//         users.forEach(function(value, j, arr) {
+//             if (j < endJ) {
+//                 if (arr[j].age > arr[j + 1].age) {
+//                     [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+
+//                 }
+//             }
+//             j++
+//         })
+//     }
+//     i++
+// })
+// console.log(users)
+
+// let i = 0
+// let endI = users.length - 1
+// users.forEach(function(value, i) {
+//     if (i < endI) {
+//         let j = 0
+//         let endJ = endI - i
+//         users.forEach(function(value, j, arr) {
+//             if (j < endJ) {
+//                 if (arr[j].age < arr[j + 1].age) {
+//                     [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+
+//                 }
+//             }
+//             j++
+//         })
+//     }
+//     i++
+// })
+// console.log(users)
+
+// let i = 0
+// let endI = users.length - 1
+// users.forEach(function(value, i) {
+//     if (i < endI) {
+//         let j = 0
+//         let endJ = endI - i
+//         users.forEach(function(value, j, arr) {
+//             if (j < endJ) {
+//                 if (arr[j].name.length > arr[j + 1].name.length) {
+//                     [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+
+//                 }
+//             }
+//             j++
+//         })
+//     }
+//     i++
+// })
+// console.log(users)
+
+// - пройтись по ньому та додати кожному юзеру поле id - яке характеризує унікальний індентифікатор (По якому принципу його створювати - ваше рішення), та зберегти це в новий масив (первинний масив залишиться без змін)
+// - відсортувати його за індентифікатором
+
+
+
+// let newObject = Object.assign({}, oldObject)
+// let newObject = [...oldObject]
+// const clone = users.map(a => ({...a}))
+
+// let clone = users.map(a => {
+//     return {...a}
+// })
+// clone.forEach(function (value, i, arr) {
+//     arr[i].id = Math.floor(Math.random() * 100)
+// })
+// clone.sort((a, b) => (a.id - b.id))
+
+
+
+// console.log(users)
+// console.log(clone)
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
