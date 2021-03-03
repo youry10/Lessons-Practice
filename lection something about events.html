@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            box-sizing: border-box;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box"></div>
+<!-- есть в штмл форма: -->
+<!-- там есть инпуты, они формируют URL. кнопка в форм предназначена для отправки -->
+<!-- это все - submit= подписание и отправка форм -->
+    <!-- <form action="XXX">
+        <input type="text" name='imya'>
+        <input type="text" name='vik'>
+        <button>Send</button> 
+    </form> -->
+
+    <!-- опустим отправку, пусть нужно по нажатии на кнопку считать то, что находится в инпутах: -->
+    <!-- 1 способ - на кнопку поставим событие onclick и привяжем функцию-->
+    <input type="text" name='name'>
+    <!-- ввод только цифр -->
+    <input type="number" name='age'>
+    <!-- <button onclick="getObject()">Send</button>  -->
+    <!-- вот для чего нужно ивенты -->
+
+    <!-- то же самое через идентификатор -->
+    <button id='target'>Send</button>
+
+    <!-- чекнутый -->
+    <input id = 'x' type="checkbox"> 
+
+
+    
+<script>
+
+
+// 1-й вариант
+// ================================================
+
+//     function getObject() {
+//         // ищем элементы внутри ДОМ структуры
+//         let inputs = document.getElementsByTagName('input')
+//         let name = inputs[0].value
+//         // вэлью - это то, что мы заполняем, параметр инпут <input type="text" name='name' value='bububu'> - поле уже заполнено, но м.б. изменено
+//         let age = inputs[1].value
+//         // фича - параметр эквивалентен значению, можно писать короче
+//         let user = {name, age} //то же самое будет let user = {name: name, age: age}
+//         console.log(user) //информация о пользователе
+//         }
+
+    
+//     let target = document.getElementById('target')
+//     target.onclick = function() {
+//         let inputs = document.getElementsByTagName('input')
+//         let name = inputs[0].value
+//         let age = inputs[1].value
+//         let user = {name, age}
+//         console.log(user)
+//         }
+
+//         target.onclick = function() {
+//             console.log('sdfdsfsdfsfd') //выведет этот текст, т.к. более поздний код
+//         }
+//         target.addEventListener('click', function() {//функция привязывает слушателя события, пишутся без приставки on-. второй параметр - функция, которая исполняется
+
+// let target = document.getElementById('target')
+//     target.onclick = function() {
+//         let inputs = document.getElementsByTagName('input')
+//         let name = inputs[0].value
+//         let age = inputs[1].value
+//         let user = {name, age}
+//         console.log(user)
+//     }
+//         })
+
+//         target.addEventListener('click', () => console.log('hello')) // привязали 2 функции на один клик
+//         // итеруем все инпуты и к каждому из них привязываем слущателя события mouseover и фцнкцию
+//         for (const input of inputs) {
+//             input.addEventListener('mouseover', () => {
+//                 input.style.background = 'silver' // при наведении мышки меняется цвет инпута 
+//             })
+//         }
+//         for (const input of inputs) {
+//             input.addEventListener('mouseleave', () => {
+//                 input.style.background = 'white' // при отведении мышки меняется цвет инпута 
+//             })
+//         }
+
+
+
+
+
+
+
+//     let users = [ 
+//         {name: 'vasya', age: 31, status: false}, 
+//         {name: 'petya', age: 30, status: true}, 
+//         {name: 'kolya', age: 29, status: true}, 
+//         {name: 'olya', age: 28, status: false}, 
+//         {name: 'max', age: 30, status: true}, 
+//         {name: 'anya', age: 31, status: false}, 
+//         {name: 'oleg', age: 28, status: false}, 
+//         {name: 'andrey', age: 29, status: true}, 
+//         {name: 'masha', age: 30, status: true}, 
+//         {name: 'olya', age: 31, status: false}, 
+//         {name: 'max', age: 31, status: true} 
+//     ];
+
+// // еще немного о коллбэках, смотри, какой у него синтаксис!
+//     users
+//         .filter(value => value.status)
+//         .sort((a, b) => a.age - b.age)
+//         .forEach(value => {
+//             let div = document.createElement('div')
+//             div.innerText = JSON.stringify(value)
+//             document.body.appendChild(div)
+//         })
+
+// // как он использует this
+//     Array.prototype.customForeach = function(callback) {
+//         for (const element of this) {
+//             callback(element)
+//         }
+//     }
+//     // передаем разные коллбэк функции
+// users.customForeach((x) = console.log(x))
+// users.customForeach((x) = x.asd = 'afdfafd')
+
+
+// 2-й вариант
+// ================================================
+
+let box = document.getElementById('box')
+box.onmousemove = function(e) {
+    console.log(e.x, e.y)
+    this.style.background = `rgb(${e.x}, ${e.y}, ${e.x})`
+}
+
+// код показывает, в каком элементе ДОМ находится курсор
+// есть такой heat map - сайт, показывает места на  экране, куда чаще кликают пользователи
+// почемуто код не работает
+document.onmousemove = function(e) {
+    console.log(e.target)
+}
+
+// берем объект события уже с клика, в массив, с двойного клика
+// делается, чтобы собирать информацию  , ложить в корзину покупки?
+// let clientMap = []
+// document.onclick = function(e) {
+//     console.log(e.target)
+//     clientMap.push({coords: {x: e.x, y: e.y}, target: e.target})
+// }
+
+// document.ondblclick = function() {
+//     console.log(clientMap)
+// }
+
+// поставим на box  событие onclick
+box.onclick = (e)  => {
+    // замещаем ед.изм. "пиксель" на пустую строку
+    // каждый клик показывает в  консоли height=200
+    let height = +getComputedStyle(box).height.replaceAll('px', '') // + - преобразование в number
+    box.style.height = height / 2 + 'px'
+    // чтобы выполняелось медленно
+    box
+        .style.transition = '300ms' // код не работает, привет Журавлеву, должен уменьшать с паузой высоту
+}
+
+inputs[0].oninput = function() {
+    box.innerText = this.value // заполняя один элемент текстом, ним же заполняется другой - тоже не работает
+}
+
+
+let x = document.getElementById('x')
+x.onclick = function() {
+    // параметр checked показ., чкунутый он или нет
+    console.log(x.checked)
+}
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
